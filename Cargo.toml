@@ -60,6 +60,13 @@ doctest = false
 doc = false
 required-features = ["generate_schema"]
 
+[[bin]]
+# Proof-of-concept for GPU detection logic
+name = "gpu_poc"
+path = "src/bin/gpu_poc.rs"
+doc = false
+required-features = ["gpu_poc"]
+
 [features]
 # Used for general builds.
 battery = ["starship-battery"]
@@ -72,6 +79,7 @@ default = ["deploy"]
 # Should not be included in builds.
 logging = ["fern", "log", "time"]
 generate_schema = ["schemars", "serde_json", "strum"]
+gpu_poc = []
 
 [dependencies]
 anyhow = "1.0.100"
