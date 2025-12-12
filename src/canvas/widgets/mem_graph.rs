@@ -89,7 +89,11 @@ impl Painter {
                 self.styles.border_type,
             )
             .title(" Memory ")
-            .border_style(self.styles.widget_title_style);
+            .border_style(if app_state.current_widget.widget_id == widget_id {
+                self.styles.highlighted_border_style
+            } else {
+                self.styles.widget_title_style
+            });
 
             let inner_area = parent_block.inner(draw_loc);
             f.render_widget(parent_block, draw_loc);
